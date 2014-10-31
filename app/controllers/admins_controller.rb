@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+ before_action :set_user, only: [:edit_user, :update_user]
  def index
  	@users = User.all
  end
@@ -14,9 +15,20 @@ class AdminsController < ApplicationController
     redirect_to admins_users_path
  end
 
+ def edit_user 	
+ end
+
+ def update_user
+ 	if @user.update(user_params)
+ 		redirect_to admins_users_path
+ 	else
+ 		redirect_to admins_edit_user_path
+ 	end
+ end
+
  private
     # Use callbacks to share common setup or constraints between actions.
-    def set_customer
+    def set_user
       @user = User.find(params[:id])
     end
 

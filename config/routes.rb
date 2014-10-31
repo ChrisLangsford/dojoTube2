@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "admins/users" => "admins#index", as: :admins_users
   get "admins/new_user" => "admins#new_user", as: :admins_new_user
   post "admins/create_user" => "admins#create_user", as: :admins_create_user
+  get "admins/edit_user/:id" => "admins#edit_user", as: :admins_edit_user
+  patch "admins/edit_user/:id" => "admins#update_user", as: :admins_update_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
