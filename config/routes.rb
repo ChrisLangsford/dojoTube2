@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :dojos
 
   devise_for :users
-  root 'welcome#index'
 
   resources :accounts
   resources :dojos
