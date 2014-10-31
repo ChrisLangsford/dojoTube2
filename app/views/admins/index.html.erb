@@ -1,12 +1,21 @@
-<h1>Admin-User#Index</h1>
-<%= link_to "New User", admins_new_user_path%>
-
-<table>
+<h1 class="page-header">Users</h1>
+<%= link_to "New User", admins_new_user_path, :class => "btn btn-success"%>
+<br/>
+<div class="table table-responsive">	
+<table class="table table-striped">
+	<thead>
+		<th>Email</th>
+		<th>Options</th>
+	</thead>
 	<% @users.each do |u|%>
 	<tr>
 		<td>
 			<%=u.email%>
 		</td>
+		<td>
+			<%= link_to "Edit", root_path ,:class => "btn btn-xs btn-warning"%>
+		</td>
 	</tr>
 	<%end%>
 </table>
+</div>
