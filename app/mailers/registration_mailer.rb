@@ -3,7 +3,7 @@ class RegistrationMailer < ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	@url = edit_user_registration_url
+  	@url = root_url
 
   	mail(to: @user.email, subject: 'Welcome to DojoTube')
   end
