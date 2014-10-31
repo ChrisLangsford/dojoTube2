@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   resources :dojos
 
   devise_for :users
+  
 
-  resources :dojos
+  get "admins/users" => "admins#index", as: :admins_users
+  get "admins/new_user" => "admins#new_user", as: :admins_new_user
+  post "admins/create_user" => "admins#create_user", as: :admins_create_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

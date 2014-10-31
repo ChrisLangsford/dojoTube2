@@ -1,0 +1,12 @@
+<h1>Admin-User#Index</h1>
+<%= link_to "New User", admins_new_user_path%>
+
+<table>
+	<% @users.each do |u|%>
+	<tr>
+		<td>
+			<%=u.email%>
+		</td>
+	</tr>
+	<%end%>
+</table>
