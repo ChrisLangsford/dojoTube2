@@ -11,8 +11,12 @@ class AdminsController < ApplicationController
  def create_user
     @user = User.new(user_params)
     #authorize! :manage, User
-    @user.save   
-    redirect_to admins_users_path
+    if @user.save
+    	RegistrationMailer.welcome_email(@user).deliver   
+    	redirect_to admins_users_path
+	else
+		redirect_to admins_new_user_path
+	end
  end
 
  def edit_user 	
@@ -34,6 +38,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email,:password, :password_confirmation, :role ,:admin)
+      params.require(:user).permit(:name, :email,:password, :password_confirmation, :admin)
     end 
 end
