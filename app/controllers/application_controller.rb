@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
   
-  #before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protected
 

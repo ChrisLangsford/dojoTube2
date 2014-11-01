@@ -35,8 +35,7 @@
 
   <div class="field">
     <%= f.label :role%>
-    <%options_for_select = [["User", "user"], ["Admin", "admin"], ["Super user", "super_user"]]%>
-    <%= f.select :role, options_for_select%>    
+    <%= f.select :role, ["User", "Admin", "Super user"], selected: "User"%>    
   </div>
 
 
