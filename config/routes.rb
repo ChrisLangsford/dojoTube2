@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
+  
+
   root 'welcome#index'
   resources :dojos
 
   devise_for :users
+  devise_scope :user do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+  end
+  resources :user, :controller => "user"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
