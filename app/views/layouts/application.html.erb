@@ -20,7 +20,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <% if current_user.try(:admin)%> 
+            <% if current_user.present? && current_user.role == "Super user"%>               
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator Tasks <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -31,7 +31,7 @@
                   <li><%= link_to "Manage Categories"%></li>                  
                   <li></li>                  
                 </ul>
-              </li>             
+              </li>                           
             <%end%>  
           </ul>
           <div class="navbar-right">

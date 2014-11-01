@@ -6,12 +6,11 @@
     <%= f.email_field :email %>
   </div>
 
-  <%if current_user.admin?%>
   <div class="field">
-    <%= f.label :admin%>
-    <%= f.check_box :admin%>
+    <%= f.label :role%>
+    <%options_for_select = [["User", "user"], ["Admin", "admin"], ["Super user", "super_user"]]%>
+    <%= f.select :role, options_for_select%>    
   </div>
-  <%end%>
 
   <div class="actions">
     <%= f.submit "Update" %>

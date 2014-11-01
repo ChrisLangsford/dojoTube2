@@ -1,4 +1,4 @@
-<%if current_user.admin?%>
+<%if current_user.role != "User"%>
 	<h1>Welcome Master</h1>
 <%else%>
 	<h1>Welcome#index</h1>

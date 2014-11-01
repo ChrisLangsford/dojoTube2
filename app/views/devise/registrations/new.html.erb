@@ -22,8 +22,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :admin%>
-    <%= f.check_box :admin%>
+    <%= f.label :role%>
+    <%options_for_select = ["User", "Admin", "Super user"]%>
+    <%= f.select :role, options_for_select%>    
   </div>
 
 

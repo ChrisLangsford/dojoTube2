@@ -27,12 +27,10 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <%if current_user.admin?%>
   <div class="field">
-    <%= f.label :admin%>
-    <%= f.check_box :admin%>
+    <%= f.label :role%>
+    <%= f.select :role, options_for_select(["User", "Admin", "Super user"])%>    
   </div>
-  <%end%>
 
   <div class="actions">
     <%= f.submit "Update" %>
