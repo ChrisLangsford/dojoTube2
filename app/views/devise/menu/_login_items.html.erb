@@ -2,6 +2,13 @@
 	<li class="dropdown">
 		<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%=current_user.email%> <span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
+		<%if current_user.present? && current_user.role == "Super user"%>
+        	<li class="dropdown-header"> Admin Tasks</li>
+        	<li><%= link_to "Manage Users", user_index_path%></li>                              
+            <li><%= link_to "Manage Dojos", dojos_path%></li> 
+            <li><%= link_to "Manage Categories"%></li>
+            <li class="divider"></li>                  
+        <%end%>
 			<li><%= link_to "Update Account", edit_user_registration_path%></li>
 			<li><a href="#"></a></li>
 			<li class="divider"></li>
