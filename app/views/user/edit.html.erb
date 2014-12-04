@@ -12,6 +12,22 @@
     <%= f.select :role, options_for_select%>    
   </div>
 
+  <div class="field">
+    <%= f.label :active%>
+    <%= f.check_box :active%>    
+  </div>
+
+  <div class="field">
+    <%= f.label :adult%>
+    <%= f.check_box :adult%>        
+  </div>
+
+  <div class="field">
+    <%= f.label :rank%>
+    <% options_for_rank = ["Instructor", "Black", "White"]%>
+    <%= f.select :rank, options_for_rank%>    
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
