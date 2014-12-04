@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= f.label :role%>
-    <%options_for_select = [["User", "user"], ["Admin", "admin"], ["Super user", "super_user"]]%>
+    <%options_for_select = ["User", "Admin", "Super user"]%>
     <%= f.select :role, options_for_select%>    
   </div>
 

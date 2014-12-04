@@ -6,6 +6,7 @@
 		<th>Active</th>
 		<th>Adult</th>
 		<th>Rank</th>
+		<th>Role</th>
 		<th>Options</th>
 	</thead>
 	<tbody>
@@ -15,6 +16,7 @@
 				<td><%= u.rank%></td>
 				<td><%= u.active%></td>
 				<td><%= u.adult%></td>
+				<td><%= u.role%></td>
 				<td><%= link_to "Edit", edit_user_path(u),:class =>"btn btn-xs btn-warning" %></td>
 			</tr>
 		<%end%>
