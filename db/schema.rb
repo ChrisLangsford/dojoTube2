@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20141208102448) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
-    t.string   "string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.boolean  "adult"
     t.boolean  "active"
     t.string   "rank"
+    t.string   "dojo_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

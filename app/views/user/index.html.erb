@@ -7,6 +7,7 @@
 		<th>Adult</th>
 		<th>Rank</th>
 		<th>Role</th>
+		<th>Dojo</th>
 		<th>Options</th>
 	</thead>
 	<tbody>
@@ -17,8 +18,13 @@
 				<td><%= u.active%></td>
 				<td><%= u.adult%></td>
 				<td><%= u.role%></td>
-				<td><%= link_to "Edit", edit_user_path(u),:class =>"btn btn-xs btn-warning" %></td>
+				<%if u.dojo.present?%>
+				<td><%= u.dojo.name%></td>
+				<%else%>
+				<td></td>
+				<%end%>					
+				<td><%= link_to "Edit", edit_user_path(u),:class =>"btn btn-xs btn-warning" %></td>				
 			</tr>
-		<%end%>
+		<%end%>			
 	</tbody>
 </table>

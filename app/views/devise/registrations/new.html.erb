@@ -43,6 +43,11 @@
     <%= f.select :rank, options_for_rank%>    
   </div>
 
+    <div class="field">
+    <%= f.label :dojo %><br />
+    <%= f.collection_select(:dojo_id, Dojo.all, :id, :name) %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

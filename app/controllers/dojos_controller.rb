@@ -2,8 +2,7 @@ class DojosController < ApplicationController
   before_action :set_dojo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dojos = Dojo.all
-    
+    @dojos = Dojo.all    
   end
 
   def show

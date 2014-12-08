@@ -4,7 +4,8 @@ class UserController < ApplicationController
 
   def index
     @users = User.all
-    #excludes(:id => current_user.id)
+    #excludes(:id => current_user.id) 
+    @dojos = Dojo.all   
   end
 
   def show
@@ -53,6 +54,6 @@ class UserController < ApplicationController
   end
 
   def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :role, :adult, :rank, :active)
+      params.require(:user).permit(:email, :password, :password_confirmation, :role, :adult, :rank, :active, :dojo_id)
     end
 end

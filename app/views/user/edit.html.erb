@@ -6,6 +6,11 @@
     <%= f.email_field :email %>
   </div>
 
+    <div class="field">
+    <%= f.label :dojo %><br />
+    <%= f.collection_select(:dojo_id, Dojo.all, :id, :name) %>
+  </div>
+
   <div class="field">
     <%= f.label :role%>
     <%options_for_select = ["User", "Admin", "Super user"]%>
