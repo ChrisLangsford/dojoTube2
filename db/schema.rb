@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101120020) do
+ActiveRecord::Schema.define(version: 20141208084543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "category_name"
+    t.string   "string"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dojos", force: true do |t|
     t.string   "name"
