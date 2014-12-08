@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :categories
   resources :dojos
+  resources :videos
 
   devise_for :users
   devise_scope :user do

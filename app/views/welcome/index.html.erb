@@ -4,3 +4,7 @@
 	<h1>Welcome#index</h1>
 	<p>Find me in app/views/welcome/index.html.erb</p>
 <%end%>
+
+<%Video.all.each do |v|%>
+<%= v.title%><br>
+<%end%>
