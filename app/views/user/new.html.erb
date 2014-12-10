@@ -40,7 +40,7 @@
 
   <div class="field">
     <%= f.label :role%>
-    <%= f.select :role, ["User", "Admin", "Super user"], selected: "User"%>    
+    <%= f.select :role, User.roles, selected: "User"%>    
   </div>
 
   <div class="field">
@@ -55,8 +55,7 @@
 
   <div class="field">
     <%= f.label :rank%>
-    <% options_for_rank = ["Instructor", "Black", "White"]%>
-    <%= f.select :rank, options_for_rank%>    
+    <%= f.select :rank, User.ranks%>    
   </div>
 
 
