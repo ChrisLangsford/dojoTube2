@@ -30,6 +30,8 @@ gem 'spring',        group: :development
 
 gem 'seed_dump', '~> 3.2.0'
 gem 'cancancan', '~> 1.9'
+
+gem 'aws-sdk'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
