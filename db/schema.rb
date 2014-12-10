@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.string   "uploader"
     t.string   "category"
     t.string   "video_descrip"
+    t.string   "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
