@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20141208102448) do
 
   create_table "videos", force: true do |t|
     t.string   "title"
+    t.string   "uploader"
+    t.string   "category"
+    t.string   "video_descrip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
