@@ -21,10 +21,11 @@
 	<%=f.select :rank, User.ranks%><br>
 
 	<%=f.label :category%>
-	<%=f.collection_select(:category, Category.all.order(:category_name), :id, :category_name)%><br>
+	<%=f.collection_select(:category_id, Category.all.order(:category_name), :id, :category_name)%><br>
 
 	<%=f.label :'text file'%>
-	<%=f.file_field 'file'%><br>
+	<%=f.file_field :file%><br>
+
 
 	<%=f.submit("Upload")%>
 

@@ -5,7 +5,10 @@ class VideosController < ApplicationController
 	end
 
 	def create
-		@video = Video.new(video_params)
+		@video = Video.new(video_params)		
+		#obj = AWS::S3.new.buckets['dojo-tube'].objects[@video.title]		
+		#obj.write("Contents")
+
 		if @video.save
 			redirect_to root_url, {message: "video successfully uploaded"}
 		end
@@ -19,7 +22,7 @@ class VideosController < ApplicationController
 	private
     def set_video
       @video = Video.find(params[:id])
-    end
+    end   
 
     def video_params
       params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank)
