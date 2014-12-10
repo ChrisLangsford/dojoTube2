@@ -6,11 +6,13 @@ class VideosController < ApplicationController
 
 	def create
 		@video = Video.new(video_params)		
-		#obj = AWS::S3.new.buckets['dojo-tube'].objects[@video.title]		
-		#obj.write("Contents")
+		
 
 		if @video.save
+		obj = AWS::S3.new.buckets['dojo-tube'].objects[@video.title].write('/public/videos/#@video.title.txt')		
 			redirect_to root_url, {message: "video successfully uploaded"}
+		else
+			render action: 'new'
 		end
 	end
 
@@ -25,6 +27,6 @@ class VideosController < ApplicationController
     end   
 
     def video_params
-      params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank)
+      params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank, :file)
     end
 end
