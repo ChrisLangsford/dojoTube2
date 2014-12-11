@@ -4,7 +4,8 @@ class Video < ActiveRecord::Base
 	has_attached_file :file, 
 		storage: 's3', 
 		s3_credentials: "#{Rails.root}/config/aws.yml", 
-		bucket: "dojo-tube-in";
+		bucket: "dojo-tube-in",
+		path: "/videos/:id/:filename";
 	
 	do_not_validate_attachment_file_type :file
 end
