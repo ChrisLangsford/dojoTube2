@@ -1,7 +1,14 @@
 class VideosController < ApplicationController
-	before_action :set_video, only: [:destroy]
+	before_action :set_video, only: [:show, :destroy]
+	def index
+		@videos = Video.all	
+	end
+
 	def new
 		@video = Video.new
+	end
+	def show
+		
 	end
 
 	def create
@@ -10,7 +17,7 @@ class VideosController < ApplicationController
 
 		if @video.save
 		#obj = AWS::S3.new.buckets['dojo-tube'].objects[@video.title].write('/public/videos/#@video.title.txt')		
-			redirect_to root_url, {message: "video successfully uploaded"}
+			redirect_to videos_path, {message: "video successfully uploaded"}
 		else
 			render action: 'new'
 		end
