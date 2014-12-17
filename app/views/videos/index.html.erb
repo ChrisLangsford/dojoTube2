@@ -2,6 +2,6 @@
 
 <%@videos.each do |v| %>
 <ul>
-	<li><%= link_to v.title, video_path(v)%></li>
+	<li><%= link_to v.title + " - " + v.rank, video_path(v)%></li>
 </ul>
 <%end%>

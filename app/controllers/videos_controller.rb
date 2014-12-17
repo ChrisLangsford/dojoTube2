@@ -1,7 +1,21 @@
 class VideosController < ApplicationController
 	before_action :set_video, only: [:show, :destroy]
 	def index
-		@videos = Video.all	
+		@videos = []
+			if current_user.role == "Admin" || current_user.role =="Super user"
+				@videos=Video.all
+			else
+			User.ranks.each do |v|
+				if v == current_user.rank
+					@videos += Video.where(rank: v) 
+					break
+				elsif
+					@videos += Video.where(rank: v)
+				end
+			end	
+		end	
+		#@videos = Video.all
+
 	end
 
 	def new

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'videos#index'
   resources :categories
   resources :dojos
   resources :videos
