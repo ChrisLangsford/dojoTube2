@@ -33,6 +33,7 @@ gem 'cancancan', '~> 1.9'
 
 gem 'aws-sdk'
 gem 'video-js-rails'
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
