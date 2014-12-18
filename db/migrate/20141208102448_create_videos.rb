@@ -6,6 +6,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :category_id
       t.string :video_descrip
       t.string :rank
+      t.string :file_url
 
       t.timestamps
     end

@@ -5,7 +5,7 @@
 	<li>uploader: <%=@video.uploader%></li>
 	<li>cateogry: <%=@video.category_id%></li>
 	<li>ranks: <%=@video.rank%></li>
-	<li>file url: <%=@video.file%></li>
+	<li>file url: <%=@video.file_url%></li>
 </ul>
 
-<%= video_player src: { mp4: @video.file }, controls: true %>
+<%= video_player src: { mp4: @video.file_url }, controls: true %>

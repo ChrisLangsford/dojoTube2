@@ -20,6 +20,7 @@ class VideosController < ApplicationController
 
 	def new
 		@video = Video.new
+		@s3_direct_post = S3_BUCKET.presigned_post(key: "videos/#{@video.id}/${filename}", success_action_status: 201, acl: :public_read)
 	end
 	def show
 		
