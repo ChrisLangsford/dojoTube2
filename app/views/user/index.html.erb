@@ -4,7 +4,6 @@
 	<thead>
 		<th>Email</th>
 		<th>Active</th>
-		<th>Adult</th>
 		<th>Rank</th>
 		<th>Role</th>
 		<th>Dojo</th>
@@ -14,9 +13,8 @@
 		<% @users.each do |u|%>
 			<tr>
 				<td><%= u.email%></td>
-				<td><%= u.rank%></td>
 				<td><%= u.active%></td>
-				<td><%= u.adult%></td>
+				<td><%= u.rank%></td>
 				<td><%= u.role%></td>
 				<%if u.dojo.present?%>
 				<td><%= u.dojo.name%></td>
