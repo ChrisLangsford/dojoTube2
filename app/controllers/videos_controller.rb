@@ -20,7 +20,7 @@ class VideosController < ApplicationController
 
 	def new
 		@video = Video.new
-		@s3_direct_post = S3_BUCKET.presigned_post(key: "videos/#{@video.id}/${filename}", success_action_status: 201, acl: :public_read)
+		@s3_direct_post = S3_BUCKET.presigned_post(key: "videos/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
 	end
 	def show
 		
@@ -49,6 +49,6 @@ class VideosController < ApplicationController
     end   
 
     def video_params
-      params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank, :file)
+      params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank, :file_url)
     end
 end

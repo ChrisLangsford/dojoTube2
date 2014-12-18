@@ -27,7 +27,7 @@
 	<%=f.file_field :file_url%><br>
 
 
-	<%=f.submit("Upload")%>
+	<%=f.submit("Upload", :class => "btn btn-sm btn-primary", )%>
 
 
 <%end%>
@@ -38,7 +38,7 @@
     var fileInput    = $(elem);
     var form         = $(fileInput.parents('form:first'));
     var submitButton = form.find('input[type="submit"]');
-    var progressBar  = $("<div class='bar'></div>");
+    var progressBar  = $("<div class='progress-bar' role='progressbar'></div>");
     var barContainer = $("<div class='progress'></div>").append(progressBar);
     fileInput.after(barContainer);
     fileInput.fileupload({
@@ -52,7 +52,11 @@
       replaceFileInput: false,
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
-        progressBar.css('width', progress + '%')
+        progressBar.
+          css('width', progress + '%').
+          text(progress + "%");
+
+
       },
       start: function (e) {
         submitButton.prop('disabled', true);
@@ -65,14 +69,14 @@
       },
       done: function(e, data) {
         submitButton.prop('disabled', false);
-        progressBar.text("Uploading done");
+        progressBar.text("Upload Complete");
 
         // extract key and generate URL from response
         var key   = $(data.jqXHR.responseXML).find("Key").text();
-        var url   = '//<%= @s3_direct_post.url.host %>/' + key;
+        var url   = 'https://<%= @s3_direct_post.url.host %>/' + key;
 
         // create hidden field
-        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+        var input = $("<input />", { type:'hidden', name: 'video[file_url]', value: url })
         form.append(input);
       },
       fail: function(e, data) {
