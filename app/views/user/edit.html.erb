@@ -1,4 +1,19 @@
 <h1 class="page-header">User#edit</h1>
+
+<div class="well col-lg-6">
+  <div class="col-md-8">
+    <%= simple_form_for(@user, url: "/user", html: { class: 'form-horizontal' }) do |f|%>
+      <%= f.input :email%>
+      <%= f.input :role, collection: User.roles%>
+      <%= f.input :dojo, collection: Dojo.all%>
+      <%= f.input :rank, collection: User.ranks%>
+      <%= f.input :active%>
+      <%= f.button :submit%>  
+    <%= link_to "Back", :back %>  
+    <%end%>
+  </div>
+</div>
+<!-- 
 <%= form_for @user do |f| %>
 
   <div class="field">
@@ -35,5 +50,5 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+ -->
 
-<%= link_to "Back", :back %>
