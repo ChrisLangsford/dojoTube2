@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
   def self.ranks
   	["White", "Yellow", "Orange", "Green", "Blue", "Purple", "Brown", "Black", "Instructor"]
   end
+
+  def active_for_authentication?
+    super && self.active? # i.e. super && self.is_active
+  end
+
+  def inactive_message
+    "Sorry, this account has been deactivated."
+  end
+
 end
