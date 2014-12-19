@@ -1,4 +1,8 @@
-<%=form_for (@video), :html => { :multipart => true, :class => "directUpload",  } do |f|%>
+<h1 class="page-header">Upload Video</h1>
+
+<div class="well col-md-4">
+  <div class="col-md-10">  
+<%=simple_form_for (@video), :html => { :multipart => true, :class => "directUpload form-horizontal",  } do |f|%>
 	<% if @video.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
@@ -11,6 +15,21 @@
 	    </div>
 	<% end %>
 
+  <%categories = []%>
+  <%Category.all.order(:category_name).each {|c| categories.push(c.category_name)}%>
+
+  <%=f.input :file_url, as: :file, label: "File"%>
+  <%=f.input :title%>
+  <%=f.input :video_descrip, as: :text, label: "Description" %>
+  <%=f.input :uploader, input_html: {value: current_user.email, readonly: true}%>
+  <%=f.input :category_id, collection: categories%>
+  <%=f.input :rank, collection: User.ranks, hint: "This is the lowest level that can access this video"%>
+  <%= f.button :submit, "Save"%>
+  <%= link_to "Back", :back, class: "btn btn-default"%>
+  </div>
+</div>
+
+<!-- 
 	<%=f.label :title%>
 	<%=f.text_field :title%><br>
 
@@ -28,7 +47,7 @@
 
 
 	<%=f.submit("Save", :class => "btn btn-sm btn-primary")%>
-
+ -->
 
 <%end%>
 
