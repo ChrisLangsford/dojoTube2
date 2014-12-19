@@ -1,31 +1,26 @@
-<%= form_for @dojo, :html => { :class => "form-horizontal dojo" } do |f| %>
+<div class="well col-md-4">
+  <div class="col-md-10">
+    <%= simple_form_for @dojo, :html => { :class => "form-horizontal" } do |f| %>
 
-    <% if @dojo.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@dojo.errors.count, "error") %> prohibited this dojo from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @dojo.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+        <% if @dojo.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@dojo.errors.count, "error") %> prohibited this dojo from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+            <% @dojo.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@dojo[:name]) %>
+      <%=f.input :name%>
+      <%= f.button :submit%>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                dojos_path, :class => 'btn btn-default' %>
+    <% end %>    
   </div>
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            dojos_path, :class => 'btn btn-default' %>
-
-<% end %>
+</div>
