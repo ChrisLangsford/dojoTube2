@@ -8,14 +8,14 @@
 				<td>
 					<div class="listed-vid row">
 						<div class="col-sm-3">
-							<img src="">							
+							<img src="#" alt="thumbnail">							
 						</div>
 						<div class="col-sm-9">							
 							<ul>
 								<li><h4><%= link_to v.title.capitalize!, video_path(v), "data-no-turbolink" => true%></h4></li>
 								<li>
 									<h6>
-										by <b><%=v.uploader%></b>
+										by <b><%=v.uploader%></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
 									</h6>
 								</li>
 								<hr/>
