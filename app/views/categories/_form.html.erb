@@ -1,21 +1,23 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="well col-md-4">
+  <div class="col-md-10">
+    <%= simple_form_for(@category) do |f| %>
+      <% if @category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :category_name %><br>
-    <%= f.text_field :category_name, autofocus: 'true' %>
-  </div> 
-  <div class="actions">
-    <%= f.submit %>
+      <%=f.input :category_name, label: "Category"%>
+      <%=f.button :submit%>
+      <%=link_to "Back", categories_path, class: "btn btn-default"%>
+
+    <% end %>    
   </div>
-<% end %>
+</div>
+
