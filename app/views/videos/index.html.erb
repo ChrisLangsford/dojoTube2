@@ -1,7 +1,33 @@
-<h1>Videos</h1>
+<h1 class="page-header">Videos</h1>
 
-<%@videos.each do |v| %>
-<ul>
-	<li><%= link_to v.title + " - " + v.rank, video_path(v), "data-no-turbolink" => true%></li>
-</ul>
-<%end%>
+<div class="col-md-8">	
+	<table class="table table-bordered">
+		<tbody>
+			<%@videos.each do |v| %>
+			<tr>
+				<td>
+					<div class="listed-vid row">
+						<div class="col-sm-3">
+							<img src="">							
+						</div>
+						<div class="col-sm-9">							
+							<ul>
+								<li><h4><%= link_to v.title.capitalize!, video_path(v), "data-no-turbolink" => true%></h4></li>
+								<li>
+									<h6>
+										by <b><%=v.uploader%></b>
+									</h6>
+								</li>
+								<hr/>
+								<li>																
+									<p><%= v.video_descrip%></p>								
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<%end%>		
+		</tbody>
+	</table>
+</div>

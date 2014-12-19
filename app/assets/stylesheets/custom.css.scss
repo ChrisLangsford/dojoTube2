@@ -9,3 +9,36 @@
   color:   white;
   display: none;
 }
+
+.listed-vid {
+	height: 8em;
+}
+
+.listed-vid ul {
+	list-style-type: none;
+	margin-left: -3.5%;
+	margin-top: -1%;
+}
+
+.listed-vid ul div {
+	margin-left: -2.75%;
+	margin-top: -2%;
+}
+
+.listed-vid img {
+	height: 110px;
+	width: 196px;
+}
+
+.listed-vid hr {
+	margin: 1.5%;
+}
+
+#background {
+	background-color: #DDDDDD;
+}
+
+#foreground {
+	background-color : #FFFFFF;
+	padding: 2px;
+}

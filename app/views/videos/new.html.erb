@@ -23,7 +23,7 @@
   <%=f.input :video_descrip, as: :text, label: "Description" %>
   <%=f.input :uploader, input_html: {value: current_user.email, readonly: true}%>
   <%=f.input :category_id, collection: categories%>
-  <%=f.input :rank, collection: User.ranks, hint: "This is the lowest level that can access this video"%>
+  <%=f.input :rank, collection: User.ranks, hint: "The lowest student level that can access this video"%>
   <%= f.button :submit, "Save"%>
   <%= link_to "Back", :back, class: "btn btn-default"%>
   </div>
