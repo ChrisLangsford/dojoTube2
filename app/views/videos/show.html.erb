@@ -1,11 +1,15 @@
-<h1><%=@video.title%></h1>
+<div class="col-md-10 col-md-offset-1">
+	<%=videojs_rails sources: {mp4: @video.file_url},controls:true, width: "854", height: "480" do%>
+		Please enable <b>JavaScript</b> to see this content.
+	<%end%>
+	<br>
+	<div class="video-details well">
+		<h2><%= @video.title%></h2>
+		<h5><%= @video.uploader%></h5>
+		<hr>
+		<b>Published on <%= @video.created_at.strftime("%b %e, %Y")%></b>
+		<p><%=@video.video_descrip%></p>		
+	</div>	
+</div>
 
-<ul>
-	<li>title: <%=@video.title%></li>
-	<li>uploader: <%=@video.uploader%></li>
-	<li>category: <%=@video.category_id%></li>
-	<li>ranks: <%=@video.rank%></li>
-	<li>file url: <%=@video.file_url%></li>
-</ul>
 
-<%= video_player src: { mp4: @video.file_url }, controls: true %>
