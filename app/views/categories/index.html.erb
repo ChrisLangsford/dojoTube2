@@ -1,6 +1,6 @@
 <h1 class="page-header">Categories
   <%= link_to new_category_path, class: "btn btn-lg btn-success col-md-offset-1" do%>
-    <span class="glyphicon glyphicon-plus"></span>
+    <span class="fa fa-plus"></span>
     New
   <%end%>
 </h1>
@@ -17,11 +17,11 @@
         <td><%=c.category_name%></td>
         <td>
           <%= link_to edit_category_path(c), :class => "btn btn-xs btn-warning"  do%>
-          <span class="glyphicon glyphicon-pencil"></span>
+          <span class="fa fa-pencil"></span>
           Edit
           <%end%>&nbsp;
           <%= link_to c, method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-xs btn-danger"  do%>
-          <span class="glyphicon glyphicon-trash"></span>
+          <span class="fa fa-trash-o"></span>
           Delete
           <%end%>
         </td>
