@@ -1,6 +1,6 @@
 <h1 class="page-header">Upload Video</h1>
 
-<div class="well col-md-4">
+<div class="well col-md-5">
   <div class="col-md-10">  
 <%=simple_form_for (@video), :html => { :multipart => true, :class => "directUpload form-horizontal",  } do |f|%>
 	<% if @video.errors.any? %>
@@ -25,7 +25,7 @@
   <%=f.input :category_id, collection: categories%>
   <%=f.input :rank, collection: User.ranks, hint: "The lowest student level that can access this video"%>
   <%= f.button :submit, "Save"%>
-  <%= link_to "Back", :back, class: "btn btn-default"%>
+  <%= link_to "Back", :back, class: "btn btn-link"%>
   </div>
 </div>
 
