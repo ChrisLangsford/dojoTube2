@@ -1,6 +1,6 @@
 class UserController < ApplicationController
    load_and_authorize_resource
-   before_action :set_user, only: [:show, :edit, :update, :destroy]
+   before_action :set_user, only: [:show, :edit, :update, :destroy, :change_status]
 
   def index
     @users = User.all
@@ -40,14 +40,15 @@ class UserController < ApplicationController
     end
   end
 
-  def change_status(user)
-    if user.active
-      user.active = false
-      user.save!
+  def change_status
+    if @user.active
+      @user.active = false
+      @user.save
     else
-      user.active = true
-      user.save!
-    end    
+      @user.active = true
+      @user.save
+    end  
+    redirect_to user_index_path  
   end
 
   def destroy    

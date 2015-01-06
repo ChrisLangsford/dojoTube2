@@ -21,9 +21,9 @@
 				<td><%= u.email%></td>
 				<td>				
 					<%if u.active%>
-						<p class="btn btn-xs btn-success">Active</p>
+						<%=link_to "Active", ping_path(u), method: "post", class: "btn btn-xs btn-success"%>
 					<%else%>
-						<p class="btn btn-xs btn-danger">Inactive</p>
+						<%= link_to "Inactive", ping_path(u), method: "post", class: "btn btn-xs btn-danger"%>
 					<%end%>				
 				</td>
 				<td><%= u.rank%></td>
