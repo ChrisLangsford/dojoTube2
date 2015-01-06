@@ -19,7 +19,13 @@
 		<% @users.each do |u|%>
 			<tr>
 				<td><%= u.email%></td>
-				<td><%= u.active%></td>
+				<td>				
+					<%if u.active%>
+						<p class="btn btn-xs btn-success">Active</p>
+					<%else%>
+						<p class="btn btn-xs btn-danger">Inactive</p>
+					<%end%>				
+				</td>
 				<td><%= u.rank%></td>
 				<%if u.dojo.present?%>
 				<td><%= u.dojo.name%></td>

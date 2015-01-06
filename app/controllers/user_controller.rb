@@ -40,6 +40,16 @@ class UserController < ApplicationController
     end
   end
 
+  def change_status(user)
+    if user.active
+      user.active = false
+      user.save!
+    else
+      user.active = true
+      user.save!
+    end    
+  end
+
   def destroy    
     if @user.destroy
       flash[:notice] = "Successfully deleted User."
