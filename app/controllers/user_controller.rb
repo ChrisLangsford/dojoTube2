@@ -18,9 +18,12 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.password = "12345678"
+    @user.password_confirmation = "12345678"
     if @user.save
       flash[:notice] = "Successfully created User." 
       redirect_to user_index_path
+      RegistrationMailer.welcome_email(@user).deliver
     else
       render :action => 'new'
     end
