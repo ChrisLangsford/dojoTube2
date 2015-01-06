@@ -7,12 +7,9 @@
       <%= f.input :password%>
       <%= f.input :password_confirmation%>
       <%= f.input :current_password%>
-      <%= f.input :role%>
-      <%= f.input :adult%>
       <%= f.input :rank, disabled: true%>
-      <%= f.input :dojo_id, collection: Dojo.all%>
       <%= f.button :submit%>
-      <%= link_to "Back", :back %>
+      <%= link_to "Back", :back, class: "btn btn-link" %>
     <%end%>  
   </div>  
 </div> 
