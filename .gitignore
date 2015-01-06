@@ -17,3 +17,4 @@
 
 #ignore file with aws credentials
 /config/aws.yml
+/config/initializers/env_variables.rb
