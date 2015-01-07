@@ -108,7 +108,10 @@
         submitButton.prop('disabled', false);
 
         progressBar.
-          css("color", "red").
+          css("color", "white").
+          css("width", "100%").
+          removeClass("progress-bar-info").
+          addClass("progress-bar-danger").
           text("Failed");          
       }
     });
