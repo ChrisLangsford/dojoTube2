@@ -72,7 +72,9 @@
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         progressBar.
+          addClass('progress-bar-info').
           css('width', progress + '%').
+          css('color', 'white').
           text(progress + "%");
 
 
@@ -81,14 +83,18 @@
         submitButton.prop('disabled', true);
 
         progressBar.
-          css('background', 'green').
           css('display', 'block').
           css('width', '0%').
+          css('color', 'black').
           text("Loading...");
       },
       done: function(e, data) {
         submitButton.prop('disabled', false);
-        progressBar.text("Upload Complete");
+        progressBar.
+        css('color', 'white').
+        text("Upload Complete").
+        removeClass("progress-bar-info").
+        addClass("progress-bar-success");
 
         // extract key and generate URL from response
         var key   = $(data.jqXHR.responseXML).find("Key").text();
@@ -102,8 +108,8 @@
         submitButton.prop('disabled', false);
 
         progressBar.
-          css("background", "red").
-          text("Failed");
+          css("color", "red").
+          text("Failed");          
       }
     });
   });
