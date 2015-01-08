@@ -23,7 +23,7 @@ class UserController < ApplicationController
     if @user.save
       flash[:notice] = "Successfully created User." 
       redirect_to user_index_path
-      #RegistrationMailer.welcome_email(@user).deliver
+      RegistrationMailer.welcome_email(@user).deliver
     else
       render :action => 'new'
     end

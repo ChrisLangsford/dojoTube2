@@ -21,4 +21,6 @@ class User < ActiveRecord::Base
     "Sorry, this account has been deactivated."
   end
 
+  validates  :dojo_id, presence: true
+
 end
