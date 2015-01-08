@@ -14,7 +14,6 @@ class VideosController < ApplicationController
 				end
 			end	
 		end	
-		#@videos = Video.all
 
 	end
 

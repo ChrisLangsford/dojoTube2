@@ -1,19 +1,8 @@
 <div class="well col-md-4">
   <div class="col-md-10">
-    <%= simple_form_for(@category) do |f| %>
-      <% if @category.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+    <%= simple_form_for(@category) do |f| %>      
 
-          <ul>
-          <% @category.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <%=f.input :category_name, label: "Category"%>
+      <%=f.input :category_name, label: "Category", required: false%>
       <%=f.button :submit%>
       <%=link_to "Back", categories_path, class: "btn btn-default"%>
 

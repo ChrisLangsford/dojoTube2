@@ -19,6 +19,8 @@ class DojosController < ApplicationController
     @dojo = Dojo.new(dojo_params)
     if @dojo.save
       redirect_to dojos_path
+    else
+      render action: "new"
     end
 
   end
