@@ -1,0 +1,11 @@
+<%= simple_form_for(@user, url: "/user", html: { class: 'form-horizontal' }) do |f|%>
+      <%= f.input :email%><!-- 
+      <%= f.input :password, input_html: {value: "123454678"}%>
+      <%= f.input :password_confirmation, input_html: {value: "123454678"}%> -->
+      <%= f.input :role, collection: User.roles, selected: 1 %>
+      <%= f.input :dojo_id, collection: Dojo.all, required: false%>
+      <%= f.input :rank, collection: User.ranks, selected: 1%>
+      <%= f.input :active%>
+      <%= f.button :submit%> 
+      <%=link_to "Back", :back, class: "btn btn-link"%> 
+<%end%>
