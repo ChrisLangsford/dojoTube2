@@ -4,6 +4,9 @@
 		<%= image_tag avatar_url(current_user.email), id: "menu-avatar"%> 
 		</a>
 		<ul class="dropdown-menu" role="menu">
+			<%current_user.username? ? display= current_user.username : display=current_user.email %>
+        	<li class="dropdown-header"> Logged in: <b><%=display%></b></li>
+        	<li class="divider"></li>
 		<%if current_user.present? && current_user.role == "Super user"%>
         	<li class="dropdown-header"> Admin Tasks</li>
         	<li><%= link_to "Manage Users", user_index_path%></li>                              
