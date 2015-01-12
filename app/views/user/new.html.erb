@@ -12,59 +12,16 @@
 <% end %>
 <div class="well col-lg-6">
   <div class="col-md-10">
-    <%= render "form"%>  
+    <%= simple_form_for(@user, url: "/user", html: { class: 'form-horizontal' }) do |f|%>
+      <%= f.input :email%><!-- 
+      <%= f.input :password, input_html: {value: "123454678"}%>
+      <%= f.input :password_confirmation, input_html: {value: "123454678"}%> -->
+      <%= f.input :role, collection: User.roles, selected: 1 %>
+      <%= f.input :dojo_id, collection: Dojo.all, required: false%>
+      <%= f.input :rank, collection: User.ranks, selected: 1%>
+      <%= f.input :active%>
+      <%= f.button :submit%> 
+      <%=link_to "Back", :back, class: "btn btn-link"%> 
+  <%end%> 
   </div>
 </div> 
-<!-- 
-<%= form_for @user, url: "/user" do |f| %>
-  
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email%>
-  </div>
-
-  <div class="field">
-    <%= f.label :dojo %><br />
-    <%= f.collection_select(:dojo_id, Dojo.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", value: '12345678' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", value: '12345678' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :role%>
-    <%= f.select :role, User.roles, selected: "User"%>    
-  </div>
-
-  <div class="field">
-    <%= f.label :active%>
-    <%= f.check_box :active%>    
-  </div>
-
-  <div class="field">
-    <%= f.label :adult%>
-    <%= f.check_box :adult%>        
-  </div>
-
-  <div class="field">
-    <%= f.label :rank%>
-    <%= f.select :rank, User.ranks%>    
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
- -->

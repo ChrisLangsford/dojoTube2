@@ -53,11 +53,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :adult%>
-    <%= f.check_box :adult%>        
-  </div>
-
-  <div class="field">
     <%= f.label :rank%>
     <% options_for_rank = ["Instructor", "Black", "White"]%>
     <%= f.select :rank, User.ranks%>    

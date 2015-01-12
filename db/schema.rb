@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-    t.boolean  "adult"
     t.boolean  "active"
     t.string   "rank"
     t.string   "dojo_id"
