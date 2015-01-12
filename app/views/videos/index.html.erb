@@ -13,9 +13,10 @@
 						<div class="col-sm-9">							
 							<ul>
 								<li><h4><%= link_to v.title.capitalize!, video_path(v),  "data-no-turbolink" => true %></h4></li>
+								<%ul = User.find(v.uploader)%>
 								<li>
 									<h6>
-										by <b><%=v.uploader%></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
+										by <b><%=ul.username? ? ul.username : ul.email %></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
 									</h6>
 								</li>
 								<hr/>

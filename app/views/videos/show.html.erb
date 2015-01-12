@@ -4,8 +4,9 @@
 	<%end%>
 	<br>
 	<div class="video-details well">
-		<h2><%= @video.title%></h2>
-		<h5><%= @video.uploader%></h5>
+		<h2><%= @video.title.capitalize!%></h2>
+		<%ul=User.find(@video.uploader)%>
+		<h5><%= ul.username? ? ul.username : ul.email%></h5>
 		<hr>
 		<b>Published on <%= @video.created_at.strftime("%b %e, %Y")%></b>
 		<p><%=@video.video_descrip%></p>		
