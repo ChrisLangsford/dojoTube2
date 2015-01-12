@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 	<li class="dropdown">
 		<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">			
-		<%= image_tag avatar_url(current_user.email), id: "menu-avatar"%> 
+		<%= image_tag avatar_url(current_user.email, 20), id: "menu-avatar"%> 
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<%current_user.username? ? display= current_user.username : display=current_user.email %>
