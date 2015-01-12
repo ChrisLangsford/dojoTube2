@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :active
     devise_parameter_sanitizer.for(:sign_up) << :rank
     devise_parameter_sanitizer.for(:sign_up) << :dojo_id
+
+    devise_parameter_sanitizer.for(:account_update) << :username
   end
 
 end

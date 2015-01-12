@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.boolean  "active"
     t.string   "rank"
     t.string   "dojo_id"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
