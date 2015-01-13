@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-	before_action :set_video, only: [:show, :destroy]
+	before_action :set_video, only: [:show, :edit, :update, :destroy]
 	def index
 		@videos = []
 			if current_user.role == "Admin" || current_user.role =="Super user"
@@ -23,6 +23,20 @@ class VideosController < ApplicationController
 	end
 	def show
 		
+	end
+	def my_videos
+		@videos = Video.all.where("uploader = '?'", current_user.id)		
+	end
+
+	def edit
+		
+	end
+	def update
+		if @video.update(video_params)
+			redirect_to my_videos_path
+		else
+			render action: 'edit'
+		end
 	end
 
 	def create

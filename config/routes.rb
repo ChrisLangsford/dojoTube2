@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :user, :controller => "user"
 
   post '/change_status/:id' => 'user#change_status', as: "ping"
+
+  get '/my_videos' => 'videos#my_videos', as: "my_videos"
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
