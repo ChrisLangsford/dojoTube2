@@ -9,7 +9,7 @@
   <%=f.input :file_url, as: :file, label: "File"%>
   <%=f.input :title, required: false%>
   <%=f.input :video_descrip, as: :text, label: "Description", required: false %>
-  <%=f.input :uploader, as: :hidden, input_html: {value: current_user.id, readonly: true}%>
+  <%=f.input :user_id, as: :hidden, input_html: {value: current_user.id, readonly: true}%>
   <%=f.input :category_id, collection: categories, required: false%>
   <%=f.input :rank, collection: User.ranks, hint: "The lowest student level that can access this video",selected: 1%>
   <%= f.button :submit, "Save", id: 'uploadFormSubmitButton'%>

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :dojo
+  has_many :videos
 
   def self.roles
   	["User", "Admin", "Super user"]

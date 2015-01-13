@@ -8,12 +8,12 @@
 				<td>
 					<div class="listed-vid row">
 						<div class="col-sm-3">
-							<img src="#" alt="thumbnail">							
+							<%= image_tag("#", alt: "thumbnail")%>						
 						</div>
 						<div class="col-sm-9">							
 							<ul>
-								<li><h4><%= link_to v.title.capitalize!, video_path(v),  "data-no-turbolink" => true %></h4></li>
-								<%ul = User.find(v.uploader)%>
+								<li><h4><%= link_to v.title.capitalize, video_path(v),  "data-no-turbolink" => true %></h4></li>
+								<%ul = v.user%>
 								<li>
 									<h6>
 										by <b><%=ul.username? ? ul.username : ul.email %></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
@@ -21,7 +21,7 @@
 								</li>
 								<hr/>
 								<li>																
-									<p><%= v.video_descrip%></p>								
+									<p><%= v.video_descrip.capitalize%></p>								
 								</li>
 							</ul>
 						</div>

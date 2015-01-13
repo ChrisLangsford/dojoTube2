@@ -5,12 +5,12 @@
 	<br>
 	<div class="video-details well">
 		<h2><%= @video.title.capitalize!%></h2>
-		<%ul=User.find(@video.uploader)%>
+		<%ul=User.find(@video.user)%>
 		<%= image_tag(avatar_url(ul.email, 48), class: "uploader_avatar")%>&nbsp;
 		<h5 class="uploader"><b><%= ul.username? ? ul.username : ul.email%></b></h5>
 		<hr>
 		<b>Published on <%= @video.created_at.strftime("%b %e, %Y")%></b>
-		<p><%=@video.video_descrip%></p>		
+		<p><%=@video.video_descrip.capitalize%></p>		
 	</div>	
 </div>
 

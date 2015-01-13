@@ -19,7 +19,7 @@
 										<%end%>
 									</h4>
 								</li>
-								<%ul = User.find(v.uploader)%>
+								<%ul = v.user%>
 								<li>
 									<h6>
 										by <b><%=ul.username? ? ul.username : ul.email %></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>

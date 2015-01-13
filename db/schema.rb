@@ -44,22 +44,26 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.string   "role"
     t.boolean  "active"
     t.string   "rank"
-    t.string   "dojo_id"
     t.string   "username"
+    t.integer  "dojo_id"
   end
 
+  add_index "users", ["dojo_id"], name: "index_users_on_dojo_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "videos", force: true do |t|
     t.string   "title"
-    t.string   "uploader"
-    t.string   "category_id"
     t.string   "video_descrip"
     t.string   "rank"
     t.string   "file_url"
+    t.integer  "user_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "videos", ["category_id"], name: "index_videos_on_category_id", using: :btree
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end

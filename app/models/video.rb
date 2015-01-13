@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-	has_one :category
-	has_one :user
+	belongs_to :category
+	belongs_to :user
 
 end

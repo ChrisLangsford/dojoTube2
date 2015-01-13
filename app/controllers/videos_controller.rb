@@ -25,7 +25,7 @@ class VideosController < ApplicationController
 		
 	end
 	def my_videos
-		@videos = Video.all.where("uploader = '?'", current_user.id)		
+		@videos = current_user.videos.all		
 	end
 
 	def edit
@@ -62,6 +62,6 @@ class VideosController < ApplicationController
     end   
 
     def video_params
-      params.require(:video).permit(:title, :uploader, :category_id, :video_descrip, :rank, :file_url)
+      params.require(:video).permit(:title, :user_id, :category_id, :video_descrip, :rank, :file_url)
     end
 end
