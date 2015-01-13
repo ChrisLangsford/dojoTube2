@@ -7,7 +7,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :file_url
 
       t.references :user, index: true
-      t.references :category, index: true
+      t.references :genre, index: true
 
       t.timestamps
     end

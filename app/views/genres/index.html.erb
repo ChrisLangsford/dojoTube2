@@ -1,5 +1,5 @@
-<h1 class="page-header">Categories
-  <%= link_to new_category_path, class: "btn btn-lg btn-success col-md-offset-1" do%>
+<h1 class="page-header">genres
+  <%= link_to new_genre_path, class: "btn btn-lg btn-success col-md-offset-1" do%>
     <span class="fa fa-plus"></span>
     New
   <%end%>
@@ -8,15 +8,15 @@
 
 <table class="table table-bordered table-striped">
   <thead>
-    <th class="col-md-10">Category Name</th>
+    <th class="col-md-10">genre Name</th>
     <th>Options</th>
   </thead>  
   <tbody>
-    <%@categories.each do |c|%>
+    <%@genres.each do |c|%>
       <tr>
-        <td><%=c.category_name%></td>
+        <td><%=c.genre_name%></td>
         <td>
-          <%= link_to edit_category_path(c), :class => "btn btn-xs btn-warning"  do%>
+          <%= link_to edit_genre_path(c), :class => "btn btn-xs btn-warning"  do%>
           <span class="fa fa-pencil"></span>
           Edit
           <%end%>&nbsp;

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'videos#index'
-  resources :categories
+  resources :genres
   resources :dojos
   resources :videos
 

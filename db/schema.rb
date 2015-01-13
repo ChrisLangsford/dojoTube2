@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20141208102448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
-    t.string   "category_name"
+  create_table "dojos", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "dojos", force: true do |t|
-    t.string   "name"
+  create_table "genres", force: true do |t|
+    t.string   "genre_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 20141208102448) do
     t.string   "rank"
     t.string   "file_url"
     t.integer  "user_id"
-    t.integer  "category_id"
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "videos", ["category_id"], name: "index_videos_on_category_id", using: :btree
+  add_index "videos", ["genre_id"], name: "index_videos_on_genre_id", using: :btree
   add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end

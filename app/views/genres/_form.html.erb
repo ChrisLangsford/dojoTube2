@@ -1,0 +1,12 @@
+<div class="well col-md-4">
+  <div class="col-md-10">
+    <%= simple_form_for(@genre) do |f| %>      
+
+      <%=f.input :genre_name, label: "genre", required: false%>
+      <%=f.button :submit%>
+      <%=link_to "Back", genres_path, class: "btn btn-default"%>
+
+    <% end %>    
+  </div>
+</div>
+
