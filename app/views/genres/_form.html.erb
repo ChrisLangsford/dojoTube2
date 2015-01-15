@@ -2,7 +2,7 @@
   <div class="col-md-10">
     <%= simple_form_for(@genre) do |f| %>      
 
-      <%=f.input :genre_name, label: "genre", required: false%>
+      <%=f.input :genre_name, label: "Genre", required: false%>
       <%=f.button :submit%>
       <%=link_to "Back", genres_path, class: "btn btn-default"%>
 
