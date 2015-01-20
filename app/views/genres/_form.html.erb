@@ -1,8 +1,9 @@
 <div class="well col-md-4">
   <div class="col-md-10">
-    <%= simple_form_for(@genre) do |f| %>      
+    <%= simple_form_for(@genre, :html => { :multipart => true }) do |f| %>      
 
       <%=f.input :genre_name, label: "Genre", required: false%>
+      <%=f.input :thumbnail, as: :file, label: "Thumbnail file"%>
       <%=f.button :submit%>
       <%=link_to "Back", genres_path, class: "btn btn-default"%>
 
