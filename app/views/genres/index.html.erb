@@ -6,26 +6,37 @@
 </h1>
 <br>
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <th class="col-md-10">genre Name</th>
-    <th>Options</th>
-  </thead>  
-  <tbody>
-    <%@genres.each do |c|%>
+<div class="col-md-8">
+  <table class="table table-bordered">
+    <tbody>
+      <%@genres.each do |g|%>
       <tr>
-        <td><%=c.genre_name%></td>
         <td>
-          <%= link_to edit_genre_path(c), :class => "btn btn-xs btn-warning"  do%>
-          <span class="fa fa-pencil"></span>
-          Edit
-          <%end%>&nbsp;
-          <%= link_to c, method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-xs btn-danger"  do%>
-          <span class="fa fa-trash-o"></span>
-          Delete
-          <%end%>
+          <div class="listed-vid row">
+            <div class="col-sm-3">
+              <%= image_tag(g.thumbnail, alt: "Thumbnail")%>
+            </div>  
+            <div class="col-sm-9">
+              <ul>
+                <li>
+                  <h1>
+                    <%= g.genre_name%>&nbsp;
+                    <%= link_to edit_genre_path(g), :class => "btn btn-warning"  do%>
+                    <span class="fa fa-pencil"></span>
+                    Edit
+                    <%end%>
+                    <%= link_to g, method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger"   do%>
+                    <span class="fa fa-trash-o"></span>  
+                    Delete                  
+                    <%end%>
+                  </h1>
+                </li>
+              </ul>
+            </div>          
+          </div>
         </td>
       </tr>
-    <%end%>
-  </tbody>
-</table>
+      <%end%>
+    </tbody>  
+  </table>  
+</div>          
