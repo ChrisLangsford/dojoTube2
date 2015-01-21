@@ -21,7 +21,8 @@ class BugsController < ApplicationController
     	BugMailer.bug_email(@bug).deliver
     	#bugs are not being tracked by the system yet, hence the following line
     	@bug.destroy!
-    	redirect_to root_path
+    	redirect_to root_path      
+      flash[:notice] = "Bug report sent successfully."
     else
     	render action: "new"
     end
