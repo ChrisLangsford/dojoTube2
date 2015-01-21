@@ -3,14 +3,14 @@ class VideosController < ApplicationController
 	def index
 		@videos = []
 			if current_user.role == "Admin" || current_user.role =="Super user"
-				@videos=Video.all
+				@videos=Video.all.order(:title)
 			else
 			User.ranks.each do |v|
 				if v == current_user.rank
-					@videos += Video.where(rank: v) 
+					@videos += Video.where(rank: v).order(:title) 
 					break
 				elsif
-					@videos += Video.where(rank: v)
+					@videos += Video.where(rank: v).order(:title)
 				end
 			end	
 		end	
