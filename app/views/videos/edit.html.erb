@@ -2,20 +2,19 @@
 
 <div class="well col-md-5">
   <div class="col-md-10">  
-<%=simple_form_for (@video), :html => { :multipart => true, :class => "directUpload form-horizontal", :id => "uploadForm"   } do |f|%>
-	<%genres = []%>
-  <%genre.all.order(:genre_name).each {|c| genres.push(c.genre_name)}%>
+    <%=simple_form_for (@video), :html => { :multipart => true, :class => "directUpload form-horizontal", :id => "uploadForm"   } do |f|%>
+    	<%=f.input :title, required: false%>
+      <%=f.input :video_descrip, as: :text, label: "Description", required: false %>
+      <%=f.input :user_id, as: :hidden, input_html: {value: current_user.id, readonly: true}%>
+      <%=f.association :genre, as: :select,  prompt: "Choose a genre", required: false,
+       :label_method => lambda { |g| "#{g.genre_name} " }%>
 
-  <%=f.input :title, required: false%>
-  <%=f.input :video_descrip, as: :text, label: "Description", required: false %>
-  <%=f.input :user_id, as: :hidden, input_html: {value: current_user, readonly: true}%>
-  <%=f.input :genre_id, collection: genres, required: false%>
-  <%=f.input :rank, collection: User.ranks, hint: "The lowest student level that can access this video",selected: 1%>
-  <%= f.button :submit, "Save", id: 'uploadFormSubmitButton'%>
-  <%= link_to "Back", :back, class: "btn btn-link"%>
+      <%=f.input :rank, collection: User.ranks, hint: "The lowest student level that can access this video",selected: 1%>
+      <%= f.button :submit, "Save", id: 'uploadFormSubmitButton'%>
+      <%= link_to "Back", :back, class: "btn btn-link"%>
+    <%end%>
   </div>
 </div>
-<%end%>
 
 <!--script for form validation-->
 <script type="text/javascript">
@@ -38,6 +37,10 @@
           required: true,
           message: "No file selected"
         }
+      },
+      classes: {
+        field: 'has-error',
+        message: 'has-error help-block '
       }
     });
   });
