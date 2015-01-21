@@ -103,6 +103,7 @@
                 }
 
                 if (error) {
+                    errorTarget.parent('div').addClass('has-error')
                     errorTarget.addClass(fieldErrorClass).after(errorEl);
                     return false;
                 } else {
