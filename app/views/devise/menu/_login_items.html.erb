@@ -1,11 +1,10 @@
 <% if user_signed_in? %>
 	<li class="dropdown">
 		<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">			
-		<%= image_tag avatar_url(current_user.email, 20), id: "menu-avatar"%> 
+		<%= image_tag avatar_url(current_user.email, 35), id: "menu-avatar"%> 
 		</a>
 		<ul class="dropdown-menu" role="menu">
-			<%current_user.username? ? display= current_user.username : display=current_user.email %>
-        	<li class="dropdown-header"> Logged in: <b><%=display%></b></li>
+        	<li class="dropdown-header"> Logged in: <b><%=current_user.username? ?  current_user.username : current_user.email %></b></li>
         	<li class="divider"></li>
         <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
         	<li><%=link_to "My Videos",my_videos_path %></li>

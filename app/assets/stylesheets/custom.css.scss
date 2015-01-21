@@ -45,8 +45,8 @@ footer p {
 }
 
 .logo {
-	height:50px;
-	max-width:100px; 
+	height:65px;
+	max-width:125px; 
 	margin-top: -15px;
 }
 
@@ -56,4 +56,8 @@ footer p {
 
 .uploader_avatar {
 	vertical-align: text-top;
+}
+
+.navbar-nav li a {
+ line-height: 35px;
 }
