@@ -3,7 +3,7 @@
 <div class="well col-md-5">
   <div class="col-md-10">  
     <%=simple_form_for (@video), :html => { :multipart => true, :class => "directUpload form-horizontal", :id => "uploadForm"   } do |f|%>
-    	<%=f.input :file_url, as: :file, label: "File"%>
+    	<%=f.input :file_url, as: :file, label: "File", input_html: {accept: "video/mp4"}%>
       <%=f.input :title, required: false%>
       <%=f.input :video_descrip, as: :text, label: "Description", required: false %>
       <%=f.input :user_id, as: :hidden, input_html: {value: current_user.id, readonly: true}%>
