@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :bugs
+
   root 'videos#index'
   resources :genres
   resources :dojos
   resources :videos
+  resources :bugs, only: [:new, :create]
 
   devise_for :users
   devise_scope :user do
