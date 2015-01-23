@@ -58,7 +58,9 @@
       </div>
     </div>
     <br> 
-    <%= bootstrap_flash%>   
+    <%if alert %>
+    <%= bootstrap_flash%>  
+    <%end%> 
     <%= render "/welcome/content"%>
 
       
