@@ -56,20 +56,20 @@
         <%= render "devise/sessions/new"%>          
       </div>
     </div>
-    <%if bootstrap_flash.present?%>
-    <br>
-    <%= bootstrap_flash%>     
-    
-    <%end%>
+    <br> 
+    <%= bootstrap_flash%>   
     <%= render "/welcome/content"%>
 
       
     
    <footer class="footer">
     <div class="container">
-      <p class="muted">
+      <p class="muted footer-links">
         Chris Langsford, 2015 &copy; - 
-        <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %>
+        <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %> -
+        <a href="#" type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal">
+          Login
+        </a>
       </p>
     </div>     
    </footer>
