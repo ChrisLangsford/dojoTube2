@@ -1,22 +1,29 @@
-<div class="container ">
-  <div class="col-lg-6 well  ">
-    <h2>Log in</h2>
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h2 class="modal-title" id="myModalLabel">Log In</h2>
+  </div>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%=f.input :email%>
-      <%=f.input :password%>
-      <% if devise_mapping.rememberable? -%>
-       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-       </div>
-     <%end-%>
-     <%=f.button :submit, "Log in"%>
-    <%end%>
-    <br>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="modal-body">       
 
-    <%= render "devise/shared/links" %>  
-    
+          <%=f.input :email%>
+          <%=f.input :password%>
+          <% if devise_mapping.rememberable? -%>
+           <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+           </div>
+
+        <%= render "devise/shared/links" %>  
+        
+      
+  </div>
+
+  <div class="modal-footer">            
+         <%end-%>
+         <%=f.button :submit, "Log in"%>
+        <%end%>
   </div>
 </div>
 

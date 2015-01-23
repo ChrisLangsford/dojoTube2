@@ -38,24 +38,12 @@
             <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
             <li><%= link_to new_video_path  do%>Upload video <span class="fa fa-cloud-upload "></span><%end%></li>
             <%end%>
-<!--        <%= render 'devise/menu/login_items'%>                                    
- -->          
-            <li>
-              <button type="button" class="btn btn-danger btn-sm" id="login-btn" data-toggle="modal" data-target="#myModal">
-                Login
-              </button>
-            </li> 
+             <%= render 'devise/menu/login_items'%>                                    
           </ul>
           </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">        
-        <%= render "devise/sessions/new"%>          
-      </div>
-    </div>
   
     <div class="container" id="foreground">
       <div class="row">      
