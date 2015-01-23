@@ -5,7 +5,8 @@ class VideosController < ApplicationController
 
 	def check_auth
 	    unless user_signed_in?
-	        redirect_to :controller => :landing_page
+	        redirect_to root_url
+	        flash[:alert] = "You must be logged in to view this page"
 	    end
 	end	
 	def index

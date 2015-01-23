@@ -56,14 +56,15 @@
         <%= render "devise/sessions/new"%>          
       </div>
     </div>
-  
-    <div class="container" id="foreground">
-      <div class="row">      
-         <br>
-         <%= bootstrap_flash%>
-         <%= yield %>         
-      </div>
-   </div> 
+    <%if bootstrap_flash.present?%>
+    <br>
+    <%= bootstrap_flash%>     
+    
+    <%end%>
+    <%= render "/welcome/content"%>
+
+      
+    
    <footer class="footer">
     <div class="container">
       <p class="muted">
