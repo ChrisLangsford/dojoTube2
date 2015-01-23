@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :bugs
 
-  root 'videos#index'
+  root 'welcome#index'
   resources :genres
   resources :dojos
   resources :videos
