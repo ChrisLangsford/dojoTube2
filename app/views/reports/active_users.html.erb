@@ -1,0 +1,44 @@
+<h1 class="page-header">
+	Active User Report
+	<h6><i><%=Time.now.strftime("%d-%b-%Y, %H:%M")%></i></h6>
+</h1>
+
+<div class="well col-md-8">
+	<div id="chartdiv" style="width: 100%; height: 400px;"></div>
+</div>
+
+
+<script type="text/javascript">
+            var chart;
+            var legend;
+
+            var chartData = [
+                {
+                    "country": "Active",
+                    "value": <%=@active_users%>
+                },
+                {
+                    "country": "Inactive",
+                    "value": <%=@inactive_users%>
+                }
+            ];
+
+            AmCharts.ready(function () {
+                // PIE CHART
+                chart = new AmCharts.AmPieChart();
+                chart.dataProvider = chartData;
+                chart.titleField = "country";
+                chart.valueField = "value";
+                chart.outlineColor = "#FFFFFF";
+                chart.outlineAlpha = 0.8;
+                chart.outlineThickness = 2;
+                chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+                // this makes the chart 3D
+                //chart.depth3D = 15;
+                //chart.angle = 30;
+                chart.colors = ["#04D215","#FF0F00"]
+
+                // WRITE
+                chart.write("chartdiv");
+            });
+</script>

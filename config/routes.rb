@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get '/my_videos' => 'videos#my_videos', as: "my_videos"
 
+  get 'reports/active_users'
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
