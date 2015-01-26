@@ -1,5 +1,21 @@
-<h1>Welcome to DojoTube</h1>
+<h1>Welcome to the DojoTube community!</h1>
 
-<p>Follow the following link to access DojoTube!</p>
-<%=link_to "Here", @url%>
+<p>You now have access to instructional videos that cover your Karate syllabus, perfect for: </p>
+<ul>
+	<li>Practising by yourself</li>
+	<li>Learning and mastering a new kata</li>
+	<li>Homework after class</li>
+	<li>Preparing for gradings & tournaments</li>
+	<li>Lessons at home for those days when you can't make it to the dojo</li>
+</ul>
+
+<p>All you have to do is click <%=link_to "here", @url%>
+to begin your DojoTube experience!</p>
+
 <p>Your default password is <b>"12345678"</b></p>
+
+
+<p>Happy training!</p>
+<p>The DojoTube team</p>
+<hr>
+<%=image_tag(attachments['logo.png'].url, size: "165x85")%>
