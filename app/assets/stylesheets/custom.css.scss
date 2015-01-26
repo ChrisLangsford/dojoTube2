@@ -70,5 +70,16 @@ footer p {
 }
 
 .carousel-caption {
-    background: #b7b7b7 !important;
+    background: #ffffff !important;
+    color: #b7b7b7 !important;
+    position:absolute !important;
 }
+
+.carousel-indicators >li {
+    background-color: #b7b7b7 !important;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+

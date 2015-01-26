@@ -1,25 +1,62 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#" data-slide-to="0" class="active"></li>
+    <li data-target="#" data-slide-to="1"></li>
+    <li data-target="#" data-slide-to="2"></li>
+    <li data-target="#" data-slide-to="3"></li>
+    <li data-target="#" data-slide-to="4"></li>
+    <li data-target="#" data-slide-to="5"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <%=image_tag("logo.png")%>
+      <%=image_tag("logo.png", size: "1540x700")%>
       <div class="carousel-caption">
-        Welcome to DojoTube!
+        <h1>Welcome to DojoTube!</h1>
       </div>
     </div>
     <div class="item">
-      <%=image_tag("logo.png")%>
-      <div class="carousel-caption">  
-      . . .       
+      <%=image_tag("video.png")%>
+      <div class="carousel-caption">
+      <h1>Sensei's instructional videos...</h1> 
       </div>
-    </div>    
+    </div>
+    <div class="item">
+      <%=image_tag("gi.png")%>
+      <div class="carousel-caption">
+      <h1>...for training at home</h1> 
+      </div>
+    </div>
+    <div class="item">
+      <%=image_tag("punch.png") %>
+      <div class="carousel-caption">
+      <h1>Learn new kata...</h1>  
+      </div>
+    </div>
+    <div class="item">
+      <%=image_tag("bow.png")%>
+      <div class="carousel-caption">  
+      <h1>...master a technique...</h1>
+      </div>
+    </div>
+    <div class="item">
+      <%=image_tag("chop.png")%>
+      <div class="carousel-caption">  
+      <h1>...or prepare for tournaments and gradings</h1>
+      </div>
+    </div>      
+    <div class="item">
+      <%=image_tag("logo.png", size: "1540x700")%>
+      <div class="carousel-caption">
+        <h1> Your first home lesson awaits.
+        <button type="button" class="btn btn-danger" id="login-btn" data-toggle="modal" data-target="#myModal">
+          Login
+        </button>
+        </h1>
+      </div>
+    </div>
   </div>
 
   <!-- Controls -->
