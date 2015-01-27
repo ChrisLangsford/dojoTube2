@@ -19,7 +19,11 @@
           </button>
           <%= link_to root_url, :class => "navbar-brand" do%>
             <%= image_tag("logo.png", :class => "logo")%>
-          <%end%>
+          <%end%> 
+          <button class="btn btn-default nav-btn" id="side-toggle">
+			<span class="fa fa-align-justify"></span>          	
+			<span class="fa fa-caret-down"></span>          	
+		  </button>         
         </div>
         
           <form class="navbar-form navbar-left col-sm-6 col-sm-offset-3" role="search">
@@ -32,49 +36,73 @@
               </div>
             </div> -->
           </form>
-          <div class="navbar-right">
+          <div class="navbar-left">
+	        <div id="navbar" class="navbar-collapse collapse brand-head">
+	          <ul class="nav navbar-nav">
+	            <li>
+	            	
+	            </li>                                    
+	          </ul>
+          	</div>
+        </div>
+
+
+        <div class="navbar-right">
           <div id="navbar" class="navbar-collapse collapse brand-head">
           <ul class="nav navbar-nav">
             <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
-            <li><%= link_to new_video_path  do%>Upload video <span class="fa fa-cloud-upload "></span><%end%></li>
-            <%end%>
-<!--        <%= render 'devise/menu/login_items'%>                                    
- -->          
             <li>
-              <button type="button" class="btn btn-danger btn-sm nav-btn" id="login-btn" data-toggle="modal" data-target="#myModal">
-              <span class="fa fa-sign-in"></span>
-                Login
-              </button>
-            </li> 
+              <%= link_to new_video_path  do%>
+              <span class="fa fa-cloud-upload "></span>&nbsp;
+              Upload video
+              <%end%>
+            </li>
+            <%end%>
+             <%= render 'devise/menu/login_items'%>                                    
           </ul>
           </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">        
-        <%= render "devise/sessions/new"%>          
-      </div>
-    </div>
-    <br> 
-    <%if alert %>
-    <%= bootstrap_flash%>  
-    <%end%> 
-    <%= render "/welcome/content"%>
 
-      
     
+    <div class="container" id="foreground">
+      <div class="row">      
+         <br>
+         <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
+		    <ul class="nav nav-sidebar">
+		    <br>
+		    <li><p>Categories</p></li>
+		        <li class="active"><a href="#">All</a></li>
+		        <%@genres = Genre.all.order(:genre_name)%>
+		        <%@genres.each do |c|%>
+		        <li><a href=""><%= c.genre_name%></a></li>
+		        <li></li>
+		        <%end%>
+		    </ul>          
+		</div>
+         <%= bootstrap_flash%>
+         <%= yield %>         
+      </div>
+   </div> 
+
+
    <footer class="footer">
     <div class="container">
-      <p class="muted footer-links">
+      <p class="muted">
         Chris Langsford, 2015 &copy; - 
-        <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %> -
-        <a href="#" type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal">
-          Login
-        </a>
+        <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %>
       </p>
     </div>     
    </footer>
+
+
+<script type="text/javascript">
+  $("#side-toggle").click(function(){
+  	$("#sidebar").slideToggle();
+  });        
+</script>
 </body>
 </html>
+
+

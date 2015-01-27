@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+	layout 'sidebar', only:  [:index, :my_videos]
 	before_action :set_video, only: [:show, :edit, :update, :destroy]
 	skip_before_action :authenticate_user!
 	before_action :check_auth
