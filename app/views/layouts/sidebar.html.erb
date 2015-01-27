@@ -20,32 +20,24 @@
           <%= link_to root_url, :class => "navbar-brand" do%>
             <%= image_tag("logo.png", :class => "logo")%>
           <%end%> 
-          <button class="btn btn-default nav-btn" id="side-toggle">
+          <!-- <button class="btn btn-default nav-btn" id="side-toggle"  title="Toggle category menu">
 			<span class="fa fa-align-justify"></span>          	
 			<span class="fa fa-caret-down"></span>          	
-		  </button>         
+		  </button> -->         
         </div>
         
-          <form class="navbar-form navbar-left col-sm-6 col-sm-offset-3" role="search">
-            <!-- <div class="form-group">
+        <div>
+          <form class="navbar-form navbar-left nav-btn"  role="search">
+            <div class="form-group">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="search" class="light-table-filter form-control home-search" data-table="order-table" placeholder="Search">
                 <span class="input-group-btn">
                   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>                                  
                 </span>
               </div>
-            </div> -->
-          </form>
-          <div class="navbar-left">
-	        <div id="navbar" class="navbar-collapse collapse brand-head">
-	          <ul class="nav navbar-nav">
-	            <li>
-	            	
-	            </li>                                    
-	          </ul>
-          	</div>
+            </div>
+          </form>        	
         </div>
-
 
         <div class="navbar-right">
           <div id="navbar" class="navbar-collapse collapse brand-head">
@@ -69,10 +61,11 @@
     <div class="container" id="foreground">
       <div class="row">      
          <br>
-         <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
+<!--         <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
 		    <ul class="nav nav-sidebar">
 		    <br>
 		    <li><p>Categories</p></li>
+		    <hr>
 		        <li class="active"><a href="#">All</a></li>
 		        <%@genres = Genre.all.order(:genre_name)%>
 		        <%@genres.each do |c|%>
@@ -80,7 +73,7 @@
 		        <li></li>
 		        <%end%>
 		    </ul>          
-		</div>
+		</div> -->
          <%= bootstrap_flash%>
          <%= yield %>         
       </div>
