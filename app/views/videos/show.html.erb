@@ -1,16 +1,21 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1">	
 	<%=videojs_rails sources: {mp4: @video.file_url},controls:true, width: "854", height: "480" do%>
 		Please enable <b>JavaScript</b> to see this content.
 	<%end%>
 	<br>
 	<div class="video-details well">
-		<h2><%= @video.title.capitalize!%></h2>
+		<h2><%= @video.title.capitalize!%>
+		<%=link_to :back, class: "btn btn-lg btn-link" do%>
+		<span class="fa fa-chevron-left"></span>
+		Back
+		<%end%>
+		</h2>
 		<%ul=User.find(@video.user)%>
 		<%= image_tag(avatar_url(ul.email, 48), class: "uploader_avatar")%>&nbsp;
 		<h5 class="uploader"><b><%= ul.username? ? ul.username : ul.email%></b></h5>
 		<hr>
 		<b>Published on <%= @video.created_at.strftime("%b %e, %Y")%></b>
-		<p><%=@video.video_descrip.capitalize%></p>		
+		<p><%=@video.video_descrip.capitalize%></p>	
 	</div>	
 </div>
 

@@ -3,6 +3,7 @@ class VideosController < ApplicationController
 	before_action :set_video, only: [:show, :edit, :update, :destroy]
 	skip_before_action :authenticate_user!
 	before_action :check_auth
+	impressionist actions: [:show], unique: [:session_hash]
 
 	def check_auth
 	    unless user_signed_in?

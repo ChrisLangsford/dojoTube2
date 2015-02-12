@@ -14,11 +14,14 @@
 							<ul>
 								<li><h4><%= link_to v.title.capitalize, video_path(v),  "data-no-turbolink" => true %></h4></li>
 								<%ul = v.user%>
-								<li>
-									<h6>
-										by <b><%=ul.username? ? ul.username : ul.email %></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
-									</h6>
-								</li>
+                <li>
+                  <h6>
+                    by <b><%=ul.username? ? ul.username : ul.email %></b> on <b><%= v.created_at.strftime("%e-%b-%Y")%></b>
+                  </h6>
+                </li>
+                <li>
+                <%= "#{v.impressionist_count} views"%>                  
+                </li>
 								<hr/>
 								<li>																
 									<p><%= v.video_descrip.capitalize%></p>								
