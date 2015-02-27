@@ -1,5 +1,5 @@
 <div class="col-md-10 col-md-offset-1">	
-	<%=videojs_rails sources: {mp4: @video.file_url},controls:true, width: "854", height: "480" do%>
+	<%=videojs_rails sources: {mp4: @video.file_url}, preload: "none" ,controls:true, width: "854", height: "480" do%>
 		Please enable <b>JavaScript</b> to see this content.
 	<%end%>
 	<br>

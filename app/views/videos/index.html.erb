@@ -8,7 +8,7 @@
 				<td>
 					<div class="listed-vid row">
 						<div class="col-sm-3">
-							<%= image_tag(v.genre.thumbnail, alt: "#{v.genre.genre_name}")%>						
+							<%=link_to video_path(v), "data-no-turbolink" => true do%> <%= image_tag(v.genre.thumbnail, alt: "#{v.genre.genre_name}")%><%end%>
 						</div>
 						<div class="col-sm-9">							
 							<ul>
