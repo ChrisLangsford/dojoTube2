@@ -1,4 +1,5 @@
 class DojosController < ApplicationController
+  layout 'sidebar', only:  [:index]
   before_action :set_dojo, only: [:show, :edit, :update, :destroy]
 
   def index

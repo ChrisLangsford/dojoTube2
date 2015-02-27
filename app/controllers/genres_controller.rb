@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  layout 'sidebar', only:  [:index]
   before_action :set_genre, only: [:edit, :update, :destroy]
 
   def index

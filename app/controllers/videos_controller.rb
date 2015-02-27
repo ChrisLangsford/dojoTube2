@@ -36,7 +36,7 @@ class VideosController < ApplicationController
 		
 	end
 	def my_videos
-		@videos = current_user.videos.all		
+		@videos = current_user.videos.all.order(:title)		
 	end
 
 	def edit
