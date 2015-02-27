@@ -59,7 +59,9 @@
     </div>
     <br> 
     <%if alert %>
-    <%= bootstrap_flash%>  
+    <div class="container">
+    <%= bootstrap_flash%>        
+    </div>
     <%end%> 
     <%= render "/welcome/content"%>      
     
@@ -70,7 +72,10 @@
         <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %> -
         <a href="#" type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal">
           Login
-        </a>        
+        </a> 
+        <%if User.all.count == 0%>
+        <%= link_to "sign up", new_user_registration_path%>
+        <%end%>       
       </p>
     </div>     
    </footer>
