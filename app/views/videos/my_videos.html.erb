@@ -13,7 +13,7 @@
 						<div class="col-sm-9">							
 							<ul>
 								<li>
-									<h4><%= link_to v.title.capitalize!, video_path(v),  "data-no-turbolink" => true %>
+									<h4><%= link_to v.title.capitalize, video_path(v),  "data-no-turbolink" => true %>
 										<%=link_to edit_video_path(v), :class =>"btn btn-sm btn-default" do%>
 										<span class="fa fa-pencil"></span>
 										<%end%>
