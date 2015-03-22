@@ -82,4 +82,4 @@ production:
   <<: *default
   database: dojoTube2_production
   username: dojoTube2
-  password: <%= ENV['DOJOTUBE2_DATABASE_PASSWORD'] %>
+  password: tiff020
