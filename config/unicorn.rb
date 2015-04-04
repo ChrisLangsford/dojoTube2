@@ -23,8 +23,3 @@ worker_processes 2
 # Time-out
 timeout 30
 
-export MANDRILL_USERNAME='dojotube101@gmail.com'
-export MANDRILL_PASSWORD='Fk1PEm1DBLApNevyX4XZsQ' 
-export AWS_ACCESS_KEY_ID='AKIAJFDXRAL22P26SYQQ'
-export AWS_SECRET_ACCESS_KEY='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'
-export S3_BUCKET='dojo-tube-in'
