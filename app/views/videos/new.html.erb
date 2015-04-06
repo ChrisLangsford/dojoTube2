@@ -32,6 +32,7 @@
       fileInput:       fileInput,
       url:             '<%= @s3_direct_post.url %>',
       type:            'POST',
+      forceIframeTransport : true,
       autoUpload:       true,
       formData:         <%= @s3_direct_post.fields.to_json.html_safe %>,
       paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
