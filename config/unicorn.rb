@@ -1,25 +1,21 @@
-# Set the working application directory
-# working_directory "/path/to/your/app"
-working_directory "/var/www/my_app"
+# set path to application
+app_dir = File.expand_path("../..", __FILE__)
+shared_dir = "#{app_dir}/shared"
+working_directory app_dir
 
-# Unicorn PID file location
-# pid "/path/to/pids/unicorn.pid"
-pid "/var/www/my_app/pids/unicorn.pid"
 
-# Path to logs
-# stderr_path "/path/to/log/unicorn.log"
-# stdout_path "/path/to/log/unicorn.log"
-stderr_path "/var/www/my_app/log/unicorn.log"
-stdout_path "/var/www/my_app/log/unicorn.log"
-
-# Unicorn socket
-listen "/tmp/unicorn.[app name].sock"
-listen "/tmp/unicorn.myapp.sock"
-
-# Number of processes
-# worker_processes 4
+# Set unicorn options
 worker_processes 2
-
-# Time-out
+preload_app true
 timeout 30
 
+
+# Set up socket location
+listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
+
+# Logging
+stderr_path "#{shared_dir}/log/unicorn.stderr.log"
+stdout_path "#{shared_dir}/log/unicorn.stdout.log"
+
+# Set master PID location
+pid "#{shared_dir}/pids/unicorn.pid"
