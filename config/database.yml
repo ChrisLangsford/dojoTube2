@@ -82,5 +82,5 @@ production:
   <<: *default
   database: dojoTube2_production
   host: localhost
-  username: dojotube2
+  username: pg
   password: <%= ENV['DOJOTUBE2_DATABASE_PASSWORD'] %>
