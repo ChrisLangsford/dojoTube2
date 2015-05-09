@@ -17,15 +17,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+        </div>
+        <div class="navbar-left">
           <%= link_to root_url, :class => "navbar-brand" do%>
             <%= image_tag("logo.png", :class => "logo")%>
           <%end%> 
           <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
           <button class="btn btn-default nav-btn" id="side-toggle"  title="Toggle category menu">
-			<span class="fa fa-align-justify"></span>          	
-			<span class="fa fa-caret-down"></span>          	
-		  </button>
-		 <%end%>          
+    			 <span class="fa fa-align-justify"></span>          	
+    			 <span class="fa fa-caret-down"></span>          	
+    		  </button>
+		 <%end%>
         </div>
         
         <div>
@@ -34,7 +36,7 @@
               <div class="input-group">
                 <input type="search" class="light-table-filter form-control home-search" data-table="order-table" placeholder="Search">
                 <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>                                  
+                  <button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button>                                  
                 </span>
               </div>
             </div>
@@ -64,7 +66,7 @@
       <div class="row">      
          <br>
 		 <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
-         <div class="col-sm-3 col-md-2 sidebar" id="sidebar">         
+         <div class="col-sm-3 col-md-2 sidebar" id="sidebar" style="display:none;">         
 		    <ul class="nav nav-sidebar">
         		<li> <h5>Admin Tasks</h5></li>
         		<li><hr></li>
@@ -101,8 +103,10 @@
         <%end%>
 		    </ul>      
 		</div>
+    <div class="col-sm-8 col-sm-offset-1">
          <%= bootstrap_flash%>
-         <%= yield %>         
+         <%= yield %>   
+    </div>
       </div>
    </div> 
 
