@@ -27,7 +27,11 @@ class DojosController < ApplicationController
   end
 
   def update
-    @dojo.update(dojo_params)
+    if @dojo.update(dojo_params)
+      redirect_to dojos_path
+    else
+      render action: "edit"
+    end
   end
 
   def destroy
