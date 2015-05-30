@@ -6,17 +6,17 @@
 </h1>
 <br>
 
-<div class="col-md-8">
+<div class="col-md-12 col-lg-10">
   <table class="table table-bordered">
     <tbody>
       <%@genres.each do |g|%>
       <tr>
         <td>
           <div class="listed-vid row">
-            <div class="col-sm-3">
+            <div class="col-sm-4 col-lg-4">
               <%= image_tag(g.thumbnail, alt: "Thumbnail")%>
             </div>  
-            <div class="col-sm-9">
+            <div class="col-sm-8 col-lg-8">
               <ul>
                 <li>
                   <h1>
