@@ -10,28 +10,29 @@
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="brand-head container-fluid">
-        <div class="navbar-header col-sm-3 col-md-2">
+        <div class="navbar-header col-sm-3 col-md-3 col-sm-offset-1 col-md-offset-1">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        </div>
-        <div class="navbar-left">
+
           <%= link_to root_url, :class => "navbar-brand" do%>
             <%= image_tag("logo.png", :class => "logo")%>
           <%end%> 
           <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
           <button class="btn btn-default nav-btn" id="side-toggle"  title="Toggle category menu">
-    			 <span class="fa fa-align-justify"></span>          	
-    			 <span class="fa fa-caret-down"></span>          	
-    		  </button>
-		 <%end%>
+           <span class="fa fa-align-justify"></span>            
+           <span class="fa fa-caret-down"></span>           
+          </button>
+        <%end%>
         </div>
+
+
         
-        <div>
-          <form class="navbar-form navbar-left nav-btn"  role="search">
+        <div class="col-md-4 col-sm-4 ">
+          <form class="navbar-form  nav-btn"  role="search">
             <div class="form-group">
               <div class="input-group">
                 <input type="search" class="light-table-filter form-control home-search" data-table="order-table" placeholder="Search">
@@ -43,7 +44,7 @@
           </form>        	
         </div>
 
-        <div class="navbar-right">
+        <div class="col-sm-3 col-md-3 col-lg-2 col-lg-offset-1 col-sm-offset-1 navbar-right">
           <div id="navbar" class="navbar-collapse collapse brand-head">
           <ul class="nav navbar-nav">
             <%if current_user.present? && (current_user.role == "Super user" || current_user.role == "Admin")%>
@@ -103,7 +104,7 @@
         <%end%>
 		    </ul>      
 		</div>
-    <div class="col-sm-8 col-sm-offset-1">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-sm-offset-2 ">
          <%= bootstrap_flash%>
          <%= yield %>   
     </div>
@@ -115,7 +116,7 @@
     <div class="container">
       <p class="muted">
         Chris Langsford, 2015 &copy; - 
-        <%= link_to "Found a bug?", new_bug_path, :class => "btn btn-link btn-xs" %>
+        <%= link_to "Report a bug", new_bug_path, :class => "btn btn-link btn-xs" %>
       </p>
     </div>     
    </footer>
